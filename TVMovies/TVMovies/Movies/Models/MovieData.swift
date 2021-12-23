@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MoviesData : Codable {
+struct MovieData : Codable {
     let score : Double
     let show : Show
 

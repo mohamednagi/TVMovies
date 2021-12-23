@@ -31,7 +31,10 @@ class MoviesViewController: BaseView, MoviesView {
         getMovies()
     }
     
-    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        navigationController?.isNavigationBarHidden = true
+    }
     
     // MARK: - Functions
     
@@ -40,6 +43,12 @@ class MoviesViewController: BaseView, MoviesView {
             guard let `self` = self else {return}
             self.setupTableView(with: "MoviesTableViewCell", tableView: self.moviesList)
         }
+    }
+    
+    func navigateToMovieDetails(movie: MovieData) {
+        guard let movieDetailsView = currentStoryboard(.MovieDetails).instantiateInitialViewController() as? MovieDetailsViewController else {return}
+        movieDetailsView.currentMovie = movie
+        navigationController?.pushViewController(movieDetailsView, animated: true)
     }
     
 }
@@ -56,7 +65,8 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let currentMovie = presenter.moviesArray[indexPath.row]
+        navigateToMovieDetails(movie: currentMovie)
     }
 }
 

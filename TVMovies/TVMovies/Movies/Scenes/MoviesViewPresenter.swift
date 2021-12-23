@@ -9,6 +9,7 @@ import Foundation
 
 protocol MoviesViewPresenter {
     var numberOfMovies: Int {get}
+    var moviesArray: [MovieData] {get}
     func configureMovieCell(cell: MoviesTableView, index: Int)
     func getMovies(completion: @escaping ()->Void)
 }
@@ -17,7 +18,7 @@ class MoviesViewPresenterImplementation: MoviesViewPresenter {
     
     // MARK: - Variables
     
-    var moviesArray = [MoviesData]()
+    var moviesArray = [MovieData]()
     var numberOfMovies: Int {
         return moviesArray.count
     }
@@ -32,7 +33,7 @@ class MoviesViewPresenterImplementation: MoviesViewPresenter {
     
     func getMovies(completion: @escaping ()->Void) {
         view.startLoading()
-        APIClient.fetchJson(stringURL: URLS.showsURL) {[weak self] (result: Result<[MoviesData],Error>?) in
+        APIClient.fetchJson(stringURL: URLS.showsURL) {[weak self] (result: Result<[MovieData],Error>?) in
             guard let `self` = self else {return}
             self.view.endLoading()
             switch result {
@@ -57,6 +58,4 @@ class MoviesViewPresenterImplementation: MoviesViewPresenter {
         cell.display(premiered: movie.premiered)
         cell.display(runTime: movie.runtime)
     }
-    
-    
 }

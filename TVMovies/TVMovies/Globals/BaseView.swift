@@ -9,6 +9,17 @@ import UIKit
 
 class BaseView: UIViewController {
     
+    // MARK: - Enums
+    enum storyboards: String {
+        case Movies
+        case MovieDetails
+    }
+    
+    func currentStoryboard(_ storyboard: storyboards) -> UIStoryboard {
+        return UIStoryboard(name: storyboard.rawValue, bundle: nil)
+    }
+    
+    
     // MARK: - Variables
     let screenBounds = UIScreen.main.bounds
     lazy var fullView = UIView(frame: CGRect(x: 0, y: 0, width: screenBounds.width, height: screenBounds.height))
