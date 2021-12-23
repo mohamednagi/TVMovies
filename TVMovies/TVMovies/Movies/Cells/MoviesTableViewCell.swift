@@ -8,29 +8,22 @@
 import UIKit
 
 protocol MoviesTableView {
-    func display(image: String)
+    func display(imageURL: String)
     func display(name: String)
     func display(rate: Int)
     func display(link: String)
-    func display(runTime: String)
+    func display(runTime: Int)
     func display(premiered: String)
 }
 
 extension MoviesTableViewCell: MoviesTableView {
     
-    func downloadImage(from url: URL) -> UIImage {
-//        getData(from: url) { data, response, error in
-//            guard let data = data, error == nil else { return }
-//            DispatchQueue.main.async {
-//                return UIImage(data: data)
-//            }
-//        }
-        return UIImage()
-    }
-    
-    func display(image: String) {
-        guard let url = URL(string: image) else {return}
-        movieImage.image = downloadImage(from: url)
+    func display(imageURL: String) {
+        guard let url = URL(string: imageURL) else {return}
+        APIClient.downloadImage(from: url) {[weak self] image in
+            guard let `self` = self else {return}
+            self.movieImage.image = image ?? UIImage()
+        }
     }
     
     func display(name: String) {
@@ -45,8 +38,8 @@ extension MoviesTableViewCell: MoviesTableView {
         movieLink.text = link
     }
     
-    func display(runTime: String) {
-        movieRunTime.text = runTime
+    func display(runTime: Int) {
+        movieRunTime.text = "\(runTime)"
     }
     
     func display(premiered: String) {

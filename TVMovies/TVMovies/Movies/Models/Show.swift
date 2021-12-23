@@ -20,7 +20,7 @@ struct Show : Codable {
 	let language : String
 	let genres : [String]
 	let status : String
-	let runtime : String
+	let runtime : Int
 	let averageRuntime : Int
 	let premiered : String
 	let ended : String
@@ -28,7 +28,7 @@ struct Show : Codable {
 	let schedule : Schedule
 	let rating : Rating
 	let weight : Int
-	let network : String
+	let network : Network
 	let webChannel : WebChannel
 	let dvdCountry : String
 	let externals : Externals
@@ -73,7 +73,7 @@ struct Show : Codable {
 		language = try values.decodeIfPresent(String.self, forKey: .language) ?? ""
 		genres = try values.decodeIfPresent([String].self, forKey: .genres) ?? []
 		status = try values.decodeIfPresent(String.self, forKey: .status) ?? ""
-		runtime = try values.decodeIfPresent(String.self, forKey: .runtime) ?? ""
+		runtime = try values.decodeIfPresent(Int.self, forKey: .runtime) ?? 0
 		averageRuntime = try values.decodeIfPresent(Int.self, forKey: .averageRuntime) ?? -1
 		premiered = try values.decodeIfPresent(String.self, forKey: .premiered) ?? ""
 		ended = try values.decodeIfPresent(String.self, forKey: .ended) ?? ""
@@ -81,7 +81,7 @@ struct Show : Codable {
 		schedule = try values.decodeIfPresent(Schedule.self, forKey: .schedule) ?? Schedule(from: decoder)
 		rating = try values.decodeIfPresent(Rating.self, forKey: .rating) ?? Rating(from: decoder)
 		weight = try values.decodeIfPresent(Int.self, forKey: .weight) ?? -1
-		network = try values.decodeIfPresent(String.self, forKey: .network) ?? ""
+		network = try values.decodeIfPresent(Network.self, forKey: .network) ?? Network(from: decoder)
 		webChannel = try values.decodeIfPresent(WebChannel.self, forKey: .webChannel) ?? WebChannel(from: decoder)
 		dvdCountry = try values.decodeIfPresent(String.self, forKey: .dvdCountry) ?? ""
 		externals = try values.decodeIfPresent(Externals.self, forKey: .externals) ?? Externals(from: decoder)

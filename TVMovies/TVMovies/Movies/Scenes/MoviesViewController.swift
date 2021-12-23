@@ -15,23 +15,33 @@ protocol MoviesView: NSObjectProtocol {
 class MoviesViewController: BaseView, MoviesView {
     
     // MARK: - IBOutlets
+    
     @IBOutlet weak var moviesList: UITableView!
+    
+    
     
     // MARK: - Variables
     
     private var configurator: BaseViewConfigurator = MoviesViewConfiguratorImplementation()
     var presenter: MoviesViewPresenter!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configurator.configure(view: self)
-        setupTableView(with: "MoviesTableViewCell", tableView: moviesList)
+        getMovies()
     }
-
+    
+    
+    
     // MARK: - Functions
     
-    // MARK: - IBActions 
-
+    func getMovies() {
+        presenter.getMovies {[weak self] in
+            guard let `self` = self else {return}
+            self.setupTableView(with: "MoviesTableViewCell", tableView: self.moviesList)
+        }
+    }
+    
 }
 
 extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
@@ -46,7 +56,7 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print(indexPath.row)
     }
 }
 

@@ -29,6 +29,9 @@
 		10CC43722774F3FA00BB841A /* Previousepisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC43682774F3FA00BB841A /* Previousepisode.swift */; };
 		10CC43732774F3FA00BB841A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC43692774F3FA00BB841A /* Image.swift */; };
 		10CC43742774F3FA00BB841A /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC436A2774F3FA00BB841A /* Links.swift */; };
+		10CC43772774FB1600BB841A /* NetworkRout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC43762774FB1600BB841A /* NetworkRout.swift */; };
+		10CC43792774FB8800BB841A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC43782774FB8800BB841A /* APIClient.swift */; };
+		10CC437B2775064000BB841A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CC437A2775064000BB841A /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		10CC43682774F3FA00BB841A /* Previousepisode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Previousepisode.swift; sourceTree = "<group>"; };
 		10CC43692774F3FA00BB841A /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		10CC436A2774F3FA00BB841A /* Links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		10CC43762774FB1600BB841A /* NetworkRout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRout.swift; sourceTree = "<group>"; };
+		10CC43782774FB8800BB841A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		10CC437A2775064000BB841A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 		10CC43372774D94E00BB841A /* TVMovies */ = {
 			isa = PBXGroup;
 			children = (
+				10CC43752774FA9B00BB841A /* Network */,
 				10CC43542774DBB700BB841A /* Globals */,
 				10CC434C2774D9EA00BB841A /* Movies */,
 				10CC43382774D94E00BB841A /* AppDelegate.swift */,
@@ -150,6 +157,7 @@
 				10CC43612774F3F900BB841A /* Self.swift */,
 				10CC43622774F3FA00BB841A /* Show.swift */,
 				10CC43652774F3FA00BB841A /* WebChannel.swift */,
+				10CC437A2775064000BB841A /* Network.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +169,15 @@
 				10CC43572774DC0300BB841A /* BaseView.swift */,
 			);
 			path = Globals;
+			sourceTree = "<group>";
+		};
+		10CC43752774FA9B00BB841A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				10CC43762774FB1600BB841A /* NetworkRout.swift */,
+				10CC43782774FB8800BB841A /* APIClient.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +254,9 @@
 				10CC43602774F3CE00BB841A /* MoviesData.swift in Sources */,
 				10CC433D2774D94E00BB841A /* MoviesViewController.swift in Sources */,
 				10CC43562774DBC000BB841A /* BaseViewConfigurator.swift in Sources */,
+				10CC43792774FB8800BB841A /* APIClient.swift in Sources */,
 				10CC435A2774DD7B00BB841A /* MoviesViewConfigurator.swift in Sources */,
+				10CC437B2775064000BB841A /* Network.swift in Sources */,
 				10CC436F2774F3FA00BB841A /* WebChannel.swift in Sources */,
 				10CC436E2774F3FA00BB841A /* Country.swift in Sources */,
 				10CC43722774F3FA00BB841A /* Previousepisode.swift in Sources */,
@@ -252,6 +271,7 @@
 				10CC43742774F3FA00BB841A /* Links.swift in Sources */,
 				10CC43712774F3FA00BB841A /* Externals.swift in Sources */,
 				10CC43532774DB9200BB841A /* MoviesViewPresenter.swift in Sources */,
+				10CC43772774FB1600BB841A /* NetworkRout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
